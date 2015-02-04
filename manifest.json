@@ -1,0 +1,33 @@
+{
+  "dotfile_dir" : "~/.dotfiles",
+  "conf" : {
+    "i3" : {
+      "symlinks" : [
+        ["~/.i3", ""]
+      ]
+    },
+    "tmux" : {
+      "symlinks" : [
+        ["~/.tmux.conf", "tmux.conf"]
+      ]
+    },
+    "vim" : {
+      "symlinks": [
+        ["~/.vimrc", "vimrc"],
+        ["~/.vim", ""]
+      ]
+    },
+    "zsh" : {
+      "symlinks": [
+        ["~/.zsh_scripts", "zsh_scripts"],
+        ["~/.zshrc", "zshrc"],
+        ["~/.antigen.zsh", "antigen.zsh"]
+      ]
+    },
+    "Xresources" : {
+      "symlinks": [
+        ["~/.Xresources", "Xresources"]
+      ]
+    }
+  }
+}
