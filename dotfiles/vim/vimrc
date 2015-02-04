@@ -113,7 +113,6 @@ nnoremap <leader>g :GundoToggle<cr>
 
 nnoremap <leader>flip :set arabic!<cr>
 nnoremap <leader>flip :set arabic!<cr>
-"nnoremap <leader>r :silent !pdflatex % > /dev/null  && evince hw4.pdf &<cr>:redraw!<cr>
 nnoremap <leader>r :silent execute("!pdflatex ".@%." 2>/dev/null 1>/dev/null && evince ".split(@%,"\\.")[0].".pdf 2>/dev/null 1>/dev/null &") \| :redraw!<cr>
 
 highlight Pmenu ctermbg=darkgrey ctermfg=white
