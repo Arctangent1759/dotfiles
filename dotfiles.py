@@ -37,7 +37,8 @@ class Dotfiles:
             shutil.rmtree(path.expanduser(self.conf.dotfile_dir))
         for conf in self.conf.conf:
             for symlink in conf.symlinks:
-                os.remove(path.expanduser(symlink.to_loc))
+                if path.exists(path.expanduser(symlink.to_loc)):
+                  os.remove(path.expanduser(symlink.to_loc))
                 os.symlink(
                     path.expanduser(symlink.from_loc),
                     path.expanduser(symlink.to_loc))
