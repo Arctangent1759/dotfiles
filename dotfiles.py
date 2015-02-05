@@ -1,3 +1,4 @@
+#!/usr/bin/python
 from json import loads
 from os import path
 from sys import argv
@@ -51,11 +52,15 @@ class Dotfiles:
 
 if __name__ == '__main__':
     d = Dotfiles()
-    if (argv[1] == 'install'):
+    if len(argv) == 1:
+        option = False
+    else:
+        option = argv[1]
+    if (option == 'install'):
         print 'Success' if d.install() else 'Failure'
-    elif (argv[1] == 'update'):
+    elif (option == 'update'):
         print 'Success' if d.update() else 'Failure'
-    elif (argv[1] == 'pull'):
+    elif (option == 'pull'):
         print 'Success' if d.pull() else 'Failure'
     else:
         print """
