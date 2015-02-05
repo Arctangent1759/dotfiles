@@ -37,7 +37,7 @@ class Dotfiles:
             shutil.rmtree(path.expanduser(self.conf.dotfile_dir))
         for conf in self.conf.conf:
             for symlink in conf.symlinks:
-                if path.exists(path.expanduser(symlink.to_loc)):
+                if path.isfile(path.expanduser(symlink.to_loc)) or path.islink(path.expanduser(symlink.to_loc)) or path.exists(path.expanduser(symlink.to_loc)):
                   os.remove(path.expanduser(symlink.to_loc))
                 os.symlink(
                     path.expanduser(symlink.from_loc),
@@ -52,6 +52,7 @@ class Dotfiles:
         return True
 
 if __name__ == '__main__':
+    os.system('git submodule update --init --recursive')
     d = Dotfiles()
     if len(argv) == 1:
         option = False
