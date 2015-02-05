@@ -29,5 +29,10 @@
         ["~/.Xresources", "Xresources"]
       ]
     }
+    "xmodmap" : {
+      "symlinks": [
+        ["~/.xmodmap", "xmodmap"]
+      ]
+    }
   }
 }
