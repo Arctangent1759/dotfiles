@@ -1,0 +1,133 @@
+set nocompatible
+
+if (!filereadable(glob("~/.vim/autoload/plug.vim")))
+  execute "!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+endif
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'google/vim-codefmt'
+Plug 'google/vim-glaive'
+Plug 'google/vim-maktaba'
+Plug 'Valloric/MatchTagAlways'
+Plug 'ap/vim-buftabline'
+Plug 'flazz/vim-colorschemes'
+Plug 'hynek/vim-python-pep8-indent'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'luochen1990/rainbow'
+Plug 'majutsushi/tagbar'
+Plug 'mhinz/vim-signify'
+Plug 'milkypostman/vim-togglelist'
+Plug 'plasticboy/vim-markdown'
+Plug 'sjl/gundo.vim'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-surround'
+
+call plug#end()
+
+
+if filereadable(glob("~/.vimrc_localBeforePlugin"))
+  source ~/.vimrc_localBeforePlugin
+endif
+
+filetype plugin indent on
+
+if filereadable(glob("~/.vimrc_localAfterPlugin"))
+  source ~/.vimrc_localBeforePlugin
+endif
+
+let mapleader=";"
+let g:buftabline_indicators = 1
+let g:gundo_close_on_revert=1
+let g:gundo_right=1
+let g:rainbow_active = 1
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
+let g:toggle_list_no_mappings = 1
+
+syntax enable
+
+set autoread
+set autowrite
+set background=dark
+set backspace=indent,eol,start 
+set backupdir=~/.vim/genfiles/backup
+set cindent
+set cmdwinheight=1
+set cursorline
+set encoding=utf8
+set expandtab
+set fillchars+=vert:\ 
+set foldlevelstart=20
+set foldmethod=syntax
+set hidden
+set history=700
+set incsearch
+set linebreak
+set nostartofline
+set noswapfile
+set nowrap
+set number
+set relativenumber
+set ruler
+set shiftwidth=2
+set showcmd
+set smartcase
+set smarttab
+set so=5
+set tabstop=2
+set undodir=~/.vim/genfiles/undo
+set undofile
+set undolevels=1000         " How many undos
+set undoreload=10000        " number of lines to save for undo
+set viminfo+=n~/.vim/genfiles/viminfo
+set whichwrap+=<,>,h,l
+set wildignore=*.o,*~,*.pyc
+set wildmenu
+
+cnoremap <c-w> <home>\<<end>\><left><left>
+inoremap jk <esc>
+nnoremap <backspace> <<
+nnoremap <c-c> "+yy
+nnoremap <c-v> "+p
+nnoremap <leader>; ;
+nnoremap <leader><tab> mzgg=G'z
+nnoremap <leader>a <c-a>
+nnoremap <leader>b :TagbarToggle<cr>
+nnoremap <leader>b!c :bd!<cr>
+nnoremap <leader>bc :bd<cr>
+nnoremap <leader>f :FormatCode<cr>
+nnoremap <leader>flip :set arabic!<cr>
+nnoremap <leader>flip :set arabic!<cr>
+nnoremap <leader>g :GundoToggle<cr>
+nnoremap <leader>h <c-w>h
+nnoremap <leader>j <c-w>j 
+nnoremap <leader>k <c-w>k
+nnoremap <leader>l <c-w>l
+nnoremap <leader>n :NERDTreeToggle<cr>
+nnoremap <leader>ss :set hlsearch!<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>tn :echom "BAD."<cr>
+nnoremap <leader>v <c-v>
+nnoremap <leader>vs :VimShellTab<cr>
+nnoremap <space> :
+nnoremap <tab> >>
+nnoremap H :bprev<cr>
+nnoremap J <c-d>
+nnoremap K <c-u>
+nnoremap L :bnext<cr>
+vnoremap <c-c> "+y
+vnoremap <c-v> "+p
+vnoremap u <nop>
+nnoremap <c-p> :FZF<cr>
+nnoremap <c-g> :GitFiles<cr>
+
+highlight CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+highlight CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+highlight Pmenu ctermbg=darkgrey ctermfg=white
+highlight PmenuSbar ctermbg=cyan ctermfg=green
+highlight PmenuSel ctermbg=darkblue ctermfg=green
+highlight PmenuThumb ctermbg=white ctermfg=red
+
+colo molokai

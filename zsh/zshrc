@@ -1,0 +1,56 @@
+if [[ $(hostname) = midgar ]]; then
+  if [ ! $TMUX ]; then tmux -2 && exit; fi
+fi
+
+path+=~/.zsh_scripts/
+
+source ~/.antigen.zsh
+
+antigen use oh-my-zsh
+
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+antigen-apply
+
+eval "$(fasd --init auto)"
+
+local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
+local user_host='%{$terminfo[bold]$fg[green]%}%n@%m%{$reset_color%}'
+local current_dir='%{$terminfo[bold]$fg[blue]%} %~%{$reset_color%}'
+local git_branch='$(git_prompt_info)%{$reset_color%}'
+if [[ $(hostname) = midgar ]]; then
+  local battery_charge='$(~/.battery.sh charge)%{$reset_color%}'
+  local battery_state='$(~/.battery.sh state)%{$reset_color%}'
+fi
+
+PROMPT="╭─${user_host} ${current_dir} ${git_branch} 
+╰─%B$%b "
+if [[ $(hostname) = midgar ]]; then
+  RPS1="${return_code} [ ${battery_charge}%% ${battery_state} ]"
+else
+  RPS1="${return_code}"
+fi
+
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%}‹"
+ZSH_THEME_GIT_PROMPT_SUFFIX="› %{$reset_color%}"
+
+setopt CORRECT
+setopt HISTIGNOREDUPS
+
+export EDITOR=vim
+
+bindkey -v
+bindkey -M viins jk vi-cmd-mode
+bindkey ^R history-incremental-search-backward
+
+alias airbears='nmcli con up id AirBears'
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias apch="ssh -X arctangent1759@107.170.25.86"
+alias cs186="ssh -X cs186-il@hive27.cs.berkeley.edu"
+alias cs164="ssh -X cs164-bw@hive27.cs.berkeley.edu"
+alias csua="ssh -X alchu@soda.berkeley.edu"
+alias v='f -e vim' # quick opening files with vim
+alias j='z'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

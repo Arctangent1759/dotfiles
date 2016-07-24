@@ -1,0 +1,5 @@
+vim/autoload/
+vim/bundle/
+vim/genfiles/
+vim/plugged/
+vim/snippets/
