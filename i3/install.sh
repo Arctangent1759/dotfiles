@@ -1,2 +1,2 @@
 #!/bin/bash
-ln -sf $(pwd)/i3 ~/.i3
+ln -sf $(pwd)/i3 ~/
