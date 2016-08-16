@@ -40,5 +40,8 @@ alias gr='git rebase -i `git log --grep="git5:.*git5track" --pretty=format:"%H" 
 alias gra='git rebase --abort'
 alias grc='git rebase --continue'
 
+# Vim
+alias m='vim'
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.zshrc_local ] && source ~/.zshrc_local
