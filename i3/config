@@ -127,6 +127,8 @@ bindsym Mod4+F7 workspace 17
 bindsym Mod4+F8 workspace 18
 bindsym Mod4+F9 workspace 19
 bindsym Mod4+F10 workspace 20
+bindsym Mod4+F11 workspace 21
+bindsym Mod4+F12 workspace 22
 
 # move focused container to workspace
 bindsym Mod4+Shift+1 move container to workspace 1
@@ -149,6 +151,8 @@ bindsym Mod4+Shift+F7 move container to workspace 17
 bindsym Mod4+Shift+F8 move container to workspace 18
 bindsym Mod4+Shift+F9 move container to workspace 19
 bindsym Mod4+Shift+F10 move container to workspace 20
+bindsym Mod4+Shift+F11 move container to workspace 21
+bindsym Mod4+Shift+F12 move container to workspace 22
 
 # reload the configuration file
 bindsym Mod4+Shift+c reload
