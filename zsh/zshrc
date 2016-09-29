@@ -31,7 +31,7 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
 # Git
-alias ga='git commit --amend --no-edit' # Ammend last commit.
+alias ga='git add . && git commit --amend --no-edit' # Ammend last commit.
 alias ge='git commit --amend' # Edit last commit message.
 alias gf='git commit -am fixup' # Create fixup commit.
 alias gs='git status'
@@ -43,5 +43,8 @@ alias grc='git rebase --continue'
 # Vim
 alias m='vim'
 
+# FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Local zshrc.
 [ -f ~/.zshrc_local ] && source ~/.zshrc_local
