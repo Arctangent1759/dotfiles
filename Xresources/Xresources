@@ -26,7 +26,7 @@ URxvt.scrollStyle:          rxvt
 URxvt.scrollBar:            false
 
 ! Perl extensions
-URxvt.perl-ext-common:      default,matcher,clipboard,digital-clock,yubikey
+URxvt.perl-ext-common:      default,matcher,clipboard,yubikey
 URxvt.matcher.button:       1
 URxvt.urlLauncher:          /usr/local/bin/vimp
 URxvt.url-launcher:          /usr/local/bin/vimp
