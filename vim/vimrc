@@ -37,7 +37,7 @@ if filereadable(glob("~/.vimrc_localAfterPlugin"))
   source ~/.vimrc_localBeforePlugin
 endif
 
-let mapleader=";"
+let mapleader="'"
 let g:buftabline_indicators = 1
 let g:gundo_close_on_revert=1
 let g:gundo_right=1
@@ -98,6 +98,7 @@ nnoremap <leader>b :TagbarToggle<cr>
 nnoremap <leader>b!c :bd!<cr>
 nnoremap <leader>bc :bd<cr>
 nnoremap <leader>f :FormatCode<cr>
+nnoremap <leader><leader>f vap:FormatLines<cr>
 nnoremap <leader>flip :set arabic!<cr>
 nnoremap <leader>flip :set arabic!<cr>
 nnoremap <leader>g :GundoToggle<cr>
