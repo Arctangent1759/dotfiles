@@ -48,3 +48,6 @@ alias m='vim'
 
 # Local zshrc.
 [ -f ~/.zshrc_local ] && source ~/.zshrc_local
+
+# thefuck
+alias fk='TF_CMD=$(TF_ALIAS=fk PYTHONIOENCODING=utf-8 TF_SHELL_ALIASES=$(alias) thefuck $(fc -ln -1 | tail -n 1)) && eval $TF_CMD ; test -n "$TF_CMD" && print -s $TF_CMD'
