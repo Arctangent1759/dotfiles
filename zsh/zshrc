@@ -45,6 +45,8 @@ alias m='vim'
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_CTRL_T_COMMAND='ag -g ""'
 
 # Local zshrc.
 [ -f ~/.zshrc_local ] && source ~/.zshrc_local
