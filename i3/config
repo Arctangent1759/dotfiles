@@ -196,3 +196,5 @@ bar {
     position bottom
     status_command i3status
 }
+
+for_window [title="^Android Emulator.*"] floating enable

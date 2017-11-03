@@ -1,3 +1,5 @@
+CASE_SENSITIVE="true"
+
 source ~/.antigen.zsh
 
 antigen use oh-my-zsh
@@ -39,6 +41,7 @@ alias gd='git diff --color=always'
 alias gr='git rebase -i `git log --grep="git5:.*git5track" --pretty=format:"%H" | head -n 1`'
 alias gra='git rebase --abort'
 alias grc='git rebase --continue'
+alias gl='git log --abbrev=8 --format=" %<(8,trunc)%C(bold blue)%h%C(reset) %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset)" -20'
 
 # Vim
 alias m='vim'
@@ -53,3 +56,5 @@ export FZF_CTRL_T_COMMAND='ag -g ""'
 
 # thefuck
 alias fk='TF_CMD=$(TF_ALIAS=fk PYTHONIOENCODING=utf-8 TF_SHELL_ALIASES=$(alias) thefuck $(fc -ln -1 | tail -n 1)) && eval $TF_CMD ; test -n "$TF_CMD" && print -s $TF_CMD'
+
+function iIIi() {python -c "from sys import argv; print ''.join({'0':'i','1':'I'}[j] for j in ''.join(format(ord(i),'08b') for i in argv[1]))" $@};

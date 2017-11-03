@@ -25,6 +25,9 @@ URxvt*letterSpace: -1
 URxvt.scrollStyle:          rxvt
 URxvt.scrollBar:            false
 
+! word boundaries
+URxvt.cutchars: `""''()<>{}&*,;=?@^|│#
+
 ! Perl extensions
 URxvt.perl-ext-common:      default,matcher,clipboard,yubikey
 URxvt.matcher.button:       1

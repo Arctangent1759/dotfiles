@@ -23,6 +23,10 @@ Plug 'plasticboy/vim-markdown'
 Plug 'sjl/gundo.vim'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-surround'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 call plug#end()
 
@@ -34,7 +38,7 @@ endif
 filetype plugin indent on
 
 if filereadable(glob("~/.vimrc_localAfterPlugin"))
-  source ~/.vimrc_localBeforePlugin
+  source ~/.vimrc_localAfterPlugin
 endif
 
 let mapleader="'"
@@ -130,5 +134,17 @@ highlight Pmenu ctermbg=darkgrey ctermfg=white
 highlight PmenuSbar ctermbg=cyan ctermfg=green
 highlight PmenuSel ctermbg=darkblue ctermfg=green
 highlight PmenuThumb ctermbg=white ctermfg=red
+
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+if executable('pyls')
+    " pip install python-language-server
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ })
+endif
 
 colo molokai
