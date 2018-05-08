@@ -10,9 +10,8 @@ antigen-apply
 local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 local user_host='%{$terminfo[bold]$fg[green]%}%n@%m%{$reset_color%}'
 local current_dir='%{$terminfo[bold]$fg[blue]%}%80<...<%~%<<%{$reset_color%}'
-local git_branch='$(git_prompt_info)%{$reset_color%}'
 
-PROMPT="╭─${user_host} ${current_dir} ${git_branch} 
+PROMPT="╭─${user_host} ${current_dir}
 ╰─%B$%b "
 RPS1="${return_code}"
 
@@ -31,6 +30,9 @@ bindkey ^R history-incremental-search-backward
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+function extension() {python -c "import os; _,ext=os.path.splitext('$1'); print ext"}
+alias uuid='python -c "import uuid; print uuid.uuid4()"'
+function uuidir () {name=$(uuid); mkdir /tmp/$name; cd /tmp/$name}
 
 # Git
 alias ga='git add . && git commit --amend --no-edit' # Ammend last commit.
@@ -38,7 +40,7 @@ alias ge='git commit --amend' # Edit last commit message.
 alias gf='git commit -am fixup' # Create fixup commit.
 alias gs='git status'
 alias gd='git diff --color=always'
-alias gr='git rebase -i `git log --grep="git5:.*git5track" --pretty=format:"%H" | head -n 1`'
+alias gr='git rebase -i `git syncpt`'
 alias gra='git rebase --abort'
 alias grc='git rebase --continue'
 alias gl='git log --abbrev=8 --format=" %<(8,trunc)%C(bold blue)%h%C(reset) %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset)" -20'

@@ -23,7 +23,8 @@ exec ~/.xinitrc
 # use Mouse+Mod4 to drag floating windows to their wanted position
 floating_modifier Mod4
 
-bindsym Control+mod4+l exec gnome-screensaver-command -l
+exec --no-startup-id cinnamon-screensaver
+bindsym Control+mod4+l exec cinnamon-screensaver-command -l
 
 # start a terminal
 bindsym Mod4+Return exec urxvt

@@ -52,6 +52,7 @@ let g:toggle_list_no_mappings = 1
 
 syntax enable
 
+set term=screen-256color
 set autoread
 set autowrite
 set background=dark
@@ -59,7 +60,6 @@ set backspace=indent,eol,start
 set backupdir=~/.vim/genfiles/backup
 set cindent
 set cmdwinheight=1
-set cursorline
 set encoding=utf8
 set expandtab
 set fillchars+=vert:\ 
@@ -147,4 +147,4 @@ if executable('pyls')
         \ })
 endif
 
-colo molokai
+colo elflord
