@@ -27,7 +27,7 @@ exec --no-startup-id cinnamon-screensaver
 bindsym Control+mod4+l exec cinnamon-screensaver-command -l
 
 # start a terminal
-bindsym Mod4+Return exec urxvt
+bindsym Mod4+Return exec gnome-terminal
 
 # start a browser
 bindsym Mod4+b exec firefox
@@ -49,6 +49,12 @@ bindsym Mod4+d exec dmenu_run
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym Mod4+d exec --no-startup-id i3-dmenu-desktop
+workspace 1 output DP-2-8
+workspace 2 output DP-2-8
+workspace 3 output DP-2-8
+workspace 4 output DP-2-8
+workspace 10 output eDP-1
+workspace 21 output eDP-1
 
 # change focus
 bindsym Mod4+h focus left
@@ -199,3 +205,8 @@ bar {
 }
 
 for_window [title="^Android Emulator.*"] floating enable
+for_window [title="Figure 1"] floating enable
+for_window [title="Figure 2"] floating enable
+for_window [title="Figure 3"] floating enable
+for_window [title="Figure 4"] floating enable
+for_window [title="Figure 5"] floating enable
